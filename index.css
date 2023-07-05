@@ -31,3 +31,7 @@ body {
 .social-item svg {
     margin-right: 8px;
 }
+
+#map {
+    height: 800px;
+}
