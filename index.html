@@ -11,42 +11,88 @@
             <h1>
                 Phil Herbert
             </h1>
-        </header>
-        <main>
-            <p>
-                Lorum ipsum
-            </p>
-            <section>
-                <ul class="social-list">
+            <nav>
+                <ul>
                     <li>
-                        <a href="mailto:phil.a.herbert@gmail.com" class="social-item">
-                            <i data-feather="mail"></i>
-                            phil.a.herbert@gmail.com
+                        <a href="/running">
+                            /running
                         </a>
                     </li>
                     <li>
-                        <a href="https://github.com/philherbert" target="_blank" class="social-item">
-                            <i data-feather="github"></i>
-                            philherbert
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/thrillherbert" target="_blank" class="social-item">
-                            <i data-feather="twitter"></i>
-                            thrillherbert
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://instagram.com/phil.a.herbert" target="_blank" class="social-item">
-                            <i data-feather="instagram"></i>
-                            phil.a.herbert
+                        <a href="/cv">
+                            /photography
                         </a>
                     </li>
                 </ul>
-            </section>
+            </nav>
+        </header>
+        <main>
+            <p>
+                Hey!
+            </p>
+            <p>
+                I'm a software developer, Tech Lead, amateur runner, and even-more-amateur photographer.
+            </p>
+            <p>
+                I like working on things that are in the public interest. I've spent the last few years consulting with
+                <a href="https://www.thoughtworks.com/">Thoughtworks</a>
+                at the
+                <a href="https://www.va.gov/">United States Department of Veterans Affairs</a>,
+                working on a notifications platform allowing consistent digital communication with veterans,
+                and a clinical decision support platform using modern HL7 standards.
+            </p>
+            <p>
+                I grew up in the UK, and I moved to Brooklyn, NY, <span id="years-in-ny">4</span> years ago.
+            </p>
+            <p>
+                My pronouns are he/him.
+            </p>
         </main>
+        <footer>
+            <ul>
+                <li>
+                    <a href="mailto:phil.a.herbert@gmail.com">
+                        <i data-feather="mail"></i>
+                        phil.a.herbert@gmail.com
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/philherbert" target="_blank">
+                        <i data-feather="github"></i>
+                        philherbert
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/thrillherbert" target="_blank">
+                        <i data-feather="twitter"></i>
+                        thrillherbert
+                    </a>
+                </li>
+                <li>
+                    <a href="https://instagram.com/phil.a.herbert" target="_blank">
+                        <i data-feather="instagram"></i>
+                        phil.a.herbert
+                    </a>
+                </li>
+                <li>
+                    <a href="https://linkedin.com/in/phil-herbert" target="_blank">
+                        <i data-feather="linkedin"></i>
+                        phil-herbert
+                    </a>
+                </li>
+            </ul>
+        </footer>
         <script>
           feather.replace()
+
+          const firstDayInUS = new Date("2019-07-19")
+          const msPerYear = 365 * 24 * 60 * 60 * 1000;
+          const replaceTextWithYearsInNY = () => {
+            const yearsInNY = (new Date() - firstDayInUS) / msPerYear
+            document.getElementById("years-in-ny").innerText = yearsInNY.toFixed(7)
+          }
+          replaceTextWithYearsInNY();
+          setInterval(replaceTextWithYearsInNY, 1000)
         </script>
     </body>
 </html>
