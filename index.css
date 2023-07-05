@@ -3,14 +3,20 @@
 
 body {
     font-family: 'Crimson Text', sans-serif;
-    margin: 30px 300px;
     font-size: 18px;
+    margin: 2vh 2vh;
 }
 
 header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 0.67em;
+}
+
+header h1 {
+    margin: 0;
 }
 
 ul {
@@ -18,6 +24,7 @@ ul {
     padding: 0;
     margin: 0;
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
 }
 
@@ -41,4 +48,39 @@ ul > li > a > svg {
 
 #map {
     height: 800px;
+}
+
+/* For extremely small screen devices (595px and below) */
+@media only screen and (max-width: 595px) {
+    body {
+        margin: 3vh 10vw;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 595px) {
+    body {
+        margin: 4vh 10vw;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    body {
+        margin: 6vh 10vw;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    body {
+        margin: 6vh 15vw;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    body {
+        margin: 6vh 20vw;
+    }
 }
