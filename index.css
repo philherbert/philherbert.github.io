@@ -31,6 +31,7 @@ ul {
 ul > li > a {
     font-family: 'DM Mono', monospace;
     display: flex;
+    gap: 8px;
     padding: 10px;
     background-color: #ebe9e9;
     border-radius: 8px;
@@ -40,10 +41,6 @@ ul > li > a {
 
 ul > li > a:hover {
     background-color: #cdcbcb;
-}
-
-ul > li > a > svg {
-    margin-right: 8px;
 }
 
 #map {
