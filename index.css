@@ -53,14 +53,26 @@ ul > li > a:hover {
     gap: 10px;
 }
 
-#gallery img {
-    max-width: 300px;
+#gallery a {
+    height: 420px;
+    flex-grow: 1;
+    flex-basis: auto;
+}
+
+#gallery a img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 /* For extremely small screen devices (595px and below) */
 @media only screen and (max-width: 595px) {
     body {
         margin: 3vh 10vw;
+    }
+
+    #gallery a {
+        height: 100%;
     }
 }
 

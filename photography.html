@@ -31,7 +31,8 @@
         <main>
             <section>
                 <p>
-                    In 2021 I started taking pictures on film. Most of these were developed at Exposure Therapy.
+                    In 2021 I started taking pictures on film.
+                    Most of these were developed and scanned at Exposure Therapy, in Brooklyn.
                 </p>
                 <div class="pswp-gallery pswp-gallery--single-column" id="gallery">
                 </div>
@@ -47,13 +48,17 @@
             children: 'a',
             pswpModule: () => import('https://unpkg.com/photoswipe/dist/photoswipe.esm.js')
           });
+          const LH_SMALL_DIMENSIONS = [1638, 2048]
+          const LH_PANO_DIMENSIONS = [2048, 855]
           const addImage = (name) => {
               const thumb = document.createElement('img')
               thumb.setAttribute('src', `/images/photography/thumbs/${name}.jpg`)
               const image = document.createElement('a')
               image.setAttribute('href', `/images/photography/${name}.jpg`)
-              image.setAttribute('data-pswp-width', '1638')
-              image.setAttribute('data-pswp-height', '2048')
+              const width = name.startsWith('pano') ? LH_PANO_DIMENSIONS[0] : LH_SMALL_DIMENSIONS[0]
+              const height = name.startsWith('pano') ? LH_PANO_DIMENSIONS[1] : LH_SMALL_DIMENSIONS[1]
+              image.setAttribute('data-pswp-width', width.toString())
+              image.setAttribute('data-pswp-height', height.toString())
               image.setAttribute('target', '_blank')
               image.appendChild(thumb)
               document.getElementById("gallery").appendChild(
@@ -63,9 +68,14 @@
           [
             'ca_suit_guy',
             'birds',
-            'andre',
+            'ca_isa',
+            'pano_road',
             'ca_chiller_guy',
-            'el_salvador_coast'
+            'el_salvador_coast',
+            'seal_fight',
+            'venice_house_1',
+            'venice_house_2',
+            'venice_house_3',
           ].forEach(name => addImage(name))
           lightbox.init();
         </script>

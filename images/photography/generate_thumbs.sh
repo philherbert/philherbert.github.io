@@ -1,0 +1,1 @@
+mogrify -resize x500 -quality 100 -path thumbs/ *.jpg
