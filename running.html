@@ -12,6 +12,7 @@
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
                 integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
                 crossorigin=""></script>
+        <script src="https://unpkg.com/polyline-encoded@0.0.9/Polyline.encoded.js"></script>
     </head>
     <body>
         <header>
@@ -36,10 +37,10 @@
         <main>
             <section>
                 <p>
-                    I'm trying to run all the streets in Brooklyn.
+                    I'm trying to run all the streets in Brooklyn. I've been at it for ~3 years, and I've completed ~50%.
                 </p>
                 <p>
-                    I've been at it for ~3 years, and I've completed ~50%.
+                   This data is pulled using the Strava API, and was last updated at <span id="last-updated-time">X</span>.
                 </p>
                 <div id="map"></div>
             </section>
@@ -49,10 +50,23 @@
 
           var map = L.map('map').setView([40.6648, -73.9315], 12);
 
-          L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', {
+            maxZoom: 20,
+            attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
           }).addTo(map);
+
+          fetch('/strava-data-fetcher/data.json').then(res => {
+            console.log(res);
+            res.json().then(json => {
+                const runs = json.runs
+                runs.forEach(run => {
+                  const polyline = L.Polyline.fromEncoded(run.polyline, { weight: 2 });
+                  polyline.addTo(map);
+                })
+                const lastUpdatedEpochSeconds = json.lastUpdatedEpochSeconds
+                document.getElementById('last-updated-time').innerText = new Date(lastUpdatedEpochSeconds * 1000).toString()
+            });
+          })
         </script>
     </body>
 </html>
