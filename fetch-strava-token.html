@@ -1,0 +1,47 @@
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>
+            Phil Herbert - running
+        </title>
+    </head>
+    <body>
+        <header>
+            <h1>
+                Phil Herbert
+            </h1>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/">
+                            <i data-feather="chevron-left"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/photography">
+                            /photography
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <p>
+                    You are being redirected.
+                </p>
+            </section>
+        </main>
+        <script>
+          const clientId = "fake"
+          const redirectUri = "http://localhost:59224/authenticate"
+
+          const url = `
+http://www.strava.com/oauth/authorize?client_id=${clientId}&response_type=code
+&redirect_uri=${redirectUri}&approval_prompt=force
+&scope=read_all,profile:read_all,activity:read_all
+`
+          window.location.replace(url);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "strava-data-fetcher",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/mapbox__polyline": "^1.0.2",
+    "@types/node": "^20.4.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  },
+  "scripts": {
+    "start": "ts-node index.ts",
+    "exchange": "ts-node code-exchange.ts"
+  },
+  "dependencies": {
+    "@mapbox/polyline": "^1.2.0",
+    "cross-fetch": "^4.0.0",
+    "strava-v3": "^2.2.0"
+  }
+}
